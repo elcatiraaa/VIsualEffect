@@ -1,5 +1,5 @@
 ﻿-- // Подключаем Fluent GUI
-local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/elcatiraaa/VIsualEffect/main/main.lua"))()
 
 local Window = Fluent:CreateWindow({
     Title = "Effect visual",
