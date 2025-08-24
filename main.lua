@@ -1,6 +1,6 @@
 return function()
-    -- // Подключаем Fluent GUI
-    local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/elcatiraaa/VIsualEffect/main/main.lua"))()
+    -- Подключаем Fluent GUI
+    local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
     local Window = Fluent:CreateWindow({
         Title = "Effect visual",
@@ -12,10 +12,11 @@ return function()
         MinimizeKey = Enum.KeyCode.LeftControl
     })
 
-    -- ⬇️ весь твой код, который ты скинул, вставляется сюда БЕЗ изменений
-    -- ...
-    -- ...
-    -- конец скрипта
+    -- 👉 сюда вставляешь всё: Atmosphere, Trails, Hat, ESP, Chams, Jump и создание кнопок GUI
+    -- (всё то, что у тебя занимало ~300 строк)
+
+    -- Автооткрытие GUI
+    Window:SelectTab(1)
 
     Fluent:Notify({
         Title = "Visual Effect",
