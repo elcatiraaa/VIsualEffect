@@ -1,5 +1,5 @@
 return function()
-    -- // Подключаем Fluent GUI
+    -- // Подключаем Fluent GUI (ВАЖНО: грузим ИЗ ОФИЦИАЛЬНОГО РЕПО, не из твоего)
     local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
     local Window = Fluent:CreateWindow({
@@ -8,7 +8,7 @@ return function()
         TabWidth = 160,
         Size = UDim2.fromOffset(580, 460),
         Acrylic = false,
-        Theme = "Dark", 
+        Theme = "Dark",
         MinimizeKey = Enum.KeyCode.LeftControl
     })
 
@@ -233,7 +233,7 @@ return function()
         end
 
         addHighlight(character)
-        
+
         Connections.ESP = player.CharacterAdded:Connect(function(char)
             addHighlight(char)
         end)
@@ -252,7 +252,7 @@ return function()
     -- =========================================================
     local function EnableChams()
         local character = player.Character or player.CharacterAdded:Wait()
-        
+
         for _, part in pairs(character:GetDescendants()) do
             if part:IsA("BasePart") then
                 if not part:GetAttribute("OriginalMaterial") then
