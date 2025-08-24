@@ -1,5 +1,6 @@
-﻿-- // Подключаем Fluent GUI
-local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+return function()
+-- // Подключаем Fluent GUI
+local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/elcatiraaa/VIsualEffect/main/main.lua"))()
 
 local Window = Fluent:CreateWindow({
     Title = "Effect visual",
@@ -247,7 +248,7 @@ local function DisableESP()
 end
 
 -- =========================================================
--- 6. Chams для персонажа (улучшенный)
+-- 6. Chams для персонажа
 -- =========================================================
 local function EnableChams()
     local character = player.Character or player.CharacterAdded:Wait()
@@ -261,69 +262,3 @@ local function EnableChams()
             part.Material = Enum.Material.Neon
             part.LocalTransparencyModifier = 0.5
         end
-    end
-end
-
-local function DisableChams()
-    local character = player.Character
-    if character then
-        for _, part in pairs(character:GetDescendants()) do
-            if part:IsA("BasePart") then
-                local origMat = part:GetAttribute("OriginalMaterial")
-                local origTrans = part:GetAttribute("OriginalTransparency")
-                if origMat then part.Material = origMat end
-                if origTrans then part.LocalTransparencyModifier = origTrans end
-            end
-        end
-    end
-end
-
--- =========================================================
--- GUI элементы
--- =========================================================
-local MainSection = Tabs.Main:AddSection("Visuals")
-
--- Атмосфера
-local AtmosphereToggle = MainSection:AddToggle("Atmosphere", {Title = "Atmosphere", Default = false})
-AtmosphereToggle:OnChanged(function(val)
-    if val then EnableAtmosphere() else DisableAtmosphere() end
-end)
-
--- Шляпа
-local HatToggle = MainSection:AddToggle("Hat", {Title = "Rainbow Hat", Default = false})
-HatToggle:OnChanged(function(val)
-    if val then EnableHat() else DisableHat() end
-end)
-
--- Трейлы
-local TrailsToggle = MainSection:AddToggle("Trails", {Title = "Rainbow Trails", Default = false})
-TrailsToggle:OnChanged(function(val)
-    if val then EnableTrails() else DisableTrails() end
-end)
-
--- Эффект прыжка
-local JumpToggle = MainSection:AddToggle("Jump", {Title = "Jump Effect", Default = false})
-JumpToggle:OnChanged(function(val)
-    if val then EnableJumpEffect() else DisableJumpEffect() end
-end)
-
--- ESP
-local ESPToggle = MainSection:AddToggle("ESP", {Title = "Local ESP", Default = false})
-ESPToggle:OnChanged(function(val)
-    if val then EnableESP() else DisableESP() end
-end)
-
--- Chams
-local ChamsToggle = MainSection:AddToggle("Chams", {Title = "Chams", Default = false})
-ChamsToggle:OnChanged(function(val)
-    if val then EnableChams() else DisableChams() end
-end)
-
--- Автооткрытие GUI
-Window:SelectTab(1)
-
-Fluent:Notify({
-    Title = "Visual Effect",
-    Content = "By @el_catiraaa",
-    Duration = 5
-})
